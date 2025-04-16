@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧩 Custom Form Builder – Next.js + TypeScript
 
-## Getting Started
+A drag-and-drop custom form builder built with Next.js App Router, TypeScript, and Tailwind CSS — using **native HTML5 drag-and-drop** (no external libraries for core logic). Users can build forms visually and export them as JSON.
 
-First, run the development server:
+---
+
+## 🚀 Live Demo
+
+> Link: 
+
+---
+
+## 🛠 Tech Stack
+
+| Tool / Framework | Purpose |
+|------------------|---------|
+| [Next.js (App Router)](https://nextjs.org/docs/app) | React Framework |
+| TypeScript | Static typing |
+| Tailwind CSS | Utility-first CSS |
+| Native Drag-and-Drop | HTML5 API for interaction |
+| Blob API | For JSON download/export |
+
+---
+
+
+## 📦 Getting Started
+
+### 1. Clone the project
 
 ```bash
+git clone https://github.com/bayuaslamaa/mbzuai-custom-form-builder.git custom-form-builder
+cd custom-form-builder
+
+npm install
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+✨ Features
+✅ Drag-and-drop form fields (Text, Dropdown, Checkbox)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+✅ View form structure as real-time JSON
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+✅ Export your form as a downloadable .json file
 
-## Learn More
+✅ Built from scratch using native APIs (no DnD libraries)
 
-To learn more about Next.js, take a look at the following resources:
+✅ Modular code & clean architecture (easy to extend)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🧱 Extensibility
+This project is built to be extended easily. You can:
 
-## Deploy on Vercel
+Add new field types (e.g., Date Picker)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Add delete/reorder support
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Add editable labels/options
+
+Save/load forms via API or Supabase
+
+Integrate form preview or live validation
+
+📘 Author Notes
+This project was built for a frontend technical assignment.
+It demonstrates my ability to write modular, scalable React code with native browser APIs and clean architecture.
