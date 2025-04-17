@@ -38,8 +38,8 @@ const FormCanvas = ({
                     onDragStart={(e) => e.dataTransfer.setData('removeFieldId', field.id)} // Sets the field ID in the data transfer object when dragging starts.
                 >
                     {field.type === 'text' && <div>
-                        <label className='text-black text-sm'>{field.label}</label>
-                        <input type="text" className='w-full text-black border-b-2 border-black' id={field.id} />
+                        <label htmlFor={field.id} className='text-black text-sm'>{field.label}</label>
+                        <input id={field.id} type="text" className='w-full text-black border-b-2 border-black' />
                     </div>
                     /* Renders a text input if the field type is 'text'. */}
 
@@ -52,8 +52,9 @@ const FormCanvas = ({
 
                     {field.type === 'checkbox' &&
                         <div className="flex items-center gap-2">
-                            <input type="checkbox" className="w-4 h-4" id={field.id} />
-                            <label className='text-black'>{field.label}</label>
+                            <input id={field.id} type="checkbox" className="w-4 h-4" />
+                            <label htmlFor={field.id} className='text-black'>{field.label}</label>
+
                         </div>
                     /* Renders a checkbox with a label if the field type is 'checkbox'. */}
                 </div>
