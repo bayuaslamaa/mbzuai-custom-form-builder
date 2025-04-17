@@ -1,6 +1,6 @@
 'use client'; // Indicates that this component is a client-side component.
 
-import { useState } from 'react'; // Importing useState hook for managing state.
+import { useRef, useState } from 'react'; // Importing useState hook for managing state.
 import FieldPalette from './components/FieldPalette'; // Importing FieldPalette component.
 import FormCanvas from './components/FormCanvas'; // Importing FormCanvas component.
 import JSONViewer from './components/JSONViewer'; // Importing JSONViewer component.
@@ -9,9 +9,14 @@ import { FormField, FieldType } from '../types/form'; // Importing types for for
 import FieldEditor from './components/FieldEditor';
 
 export default function HomePage() {
+
+  const dropHandledRef = useRef(false);
+
+
   const [fields, setFields] = useState<FormField[]>([]); // State to store form fields.
   const [selectedFieldId, setSelectedFieldId] = useState<string | null>(null);
   const handleDrop = (e: React.DragEvent) => {
+    dropHandledRef.current = true;
     const fieldType = e.dataTransfer.getData('fieldType') as FieldType; // Get field type from drag event.
 
     if (fieldType) {
@@ -25,10 +30,17 @@ export default function HomePage() {
   };
 
   const handleRemoveDrop = (e: React.DragEvent) => {
-    const fieldId = e.dataTransfer.getData('removeFieldId'); // Get field ID from drag event.
-    if (fieldId) {
-      setFields(fields.filter((field) => field.id !== fieldId)); // Remove field from state.
+
+    // Only remove if drop wasn't handled in canvas
+    if (!dropHandledRef.current) {
+      const fieldId = e.dataTransfer.getData('removeFieldId');
+      if (fieldId) {
+        setFields((prev) => prev.filter((f) => f.id !== fieldId));
+      }
     }
+
+    // Reset after every drop
+    dropHandledRef.current = false;
   };
 
   const updateField = (id: string, data: Partial<FormField>) => {

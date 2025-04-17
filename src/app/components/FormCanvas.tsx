@@ -43,11 +43,15 @@ const FormCanvas = ({
                     </div>
                     /* Renders a text input if the field type is 'text'. */}
 
-                    {field.type === 'dropdown' && <select className="w-full text-black" id={field.id}>
-                        {field.options ? field.options?.map((option) => (
-                            <option key={option} value={option}>{option}</option>
-                        )) : <option value="">Options not set</option>}
-                    </select>
+                    {field.type === 'dropdown' &&
+                        <div>
+                            <label htmlFor={field.id} className='text-black text-sm'>{field.label}</label>
+                            <select className="w-full text-black" id={field.id}>
+                                {field.options ? field.options?.map((option) => (
+                                    <option key={option} value={option}>{option}</option>
+                                )) : <option value="">Options not set</option>}
+                            </select>
+                        </div>
                     /* Renders a dropdown select if the field type is 'dropdown'. */}
 
                     {field.type === 'checkbox' &&
